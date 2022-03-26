@@ -84,12 +84,17 @@ A number of the methods in the Document class could act as useful functions in a
 * The sentence surrounding the word was capped at 40 words.  This logic is in the ```	def sentence_cropped(self, word):``` method in the Document class, and places the keyword at index 30 of 40 to provide reasonable context within a sentence of excessive length.
 
 
+## Roadmap
+Future features include :
+* Scraping recent SEC filings
+* Executing diff comparisons on the notes sections of filings
+* Topic modeling and Sentiment Analysis using Gensim library
 
 
 
 ## Data Sanity Checking
 
-Initially testing for the frequency of string "people" in all documents in test_docs directory returns 69.  This is within a reasonable tolerance of the returned value of 68 running the python script.
+Testing that results are within a reasonable tolerance of a simple grep search.
 
 ```bash
 cd test_docs
@@ -103,7 +108,7 @@ cat *.txt >> combined.txt
 cat combined.txt | tr -cs A-Za-z '\n' | tr A-Z a-z | sort | uniq -c | sort -rn | sed 230q | tail -n +31
 ````
 
-Confirms "America" appears 54 times, and "Iraq" appears 64 times.
+
 
 
 
